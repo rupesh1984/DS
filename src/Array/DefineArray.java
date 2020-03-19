@@ -12,7 +12,6 @@ public static void main(String args[]) {
 	oneDArr[2] =30;
 	
 	
-	
 	System.out.print("Lenght of array is "+oneDArr.length);
 }
 	 
