@@ -37,3 +37,9 @@ public class SumOfTwoArrayByHashSet {
 
 
 }
+
+// So arr = [3,6,4,7,2]
+// n = 11
+//11-3= 8
+//11-6=5
+//11-4=7  , 7 found in arr so here is answer for first i and n-i which is 11-7 =4 is another value
