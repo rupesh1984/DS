@@ -11,18 +11,6 @@ public class DeleteDuplicate {
         totalDups = findDuplicates(arr);
         int[] tempArr = new int[arr.length-totalDups];
 
-//        for(int i=0;i<arr.length;i++){
-//            for(int j =1;j<arr.length;j++){
-//
-//                if(arr[i] == arr[j] && i!=j && arr[i]!=0){
-//
-//                    arr[j] =0;
-//
-//
-//                }
-//            }
-//        }
-
         for(int i =0;i<arr.length;i++){
             System.out.println("Data os "+duplicateArr[i]);
         }

@@ -1,18 +1,19 @@
 package StackAndQueue;
 
-public class Queue<T> {
-    private  int maxSize;
-    private T[] arr;
+public class Queue<V> {
     private int front;
     private int rear;
     private int currentSize;
+    private int maxSize;
+    private V[] arr;
 
-    public Queue(int size ){
-        this.maxSize = size;
-        arr = (T[]) new Object[maxSize];
+    public Queue(int maxSize){
         this.front = 0;
-        this.rear = -1;
+        this.rear =-1;
         this.currentSize =0;
+        this.maxSize = maxSize;
+        arr = (V[]) new Object[maxSize];
+
     }
 
     public boolean checkIfFull(){
@@ -22,64 +23,67 @@ public class Queue<T> {
         return false;
     }
 
-    public int getMaxSize(){
-        return this.maxSize;
-    }
-
-    public int getCurrentSize(){
-        return this.currentSize;
-    }
-
     public boolean checkIfEmpty(){
-        if(this.currentSize ==0)
+        if(this.currentSize == 0)
             return true;
-
         return false;
     }
-
-    public T getCurrentFront(){
-        return this.arr[this.front];
+    public V getCurrentFront(){
+        return arr[this.front];
+    }
+    public V getCurrentRear(){
+        return arr[this.rear];
     }
 
-    public T getCurrentRear(){
-        return this.arr[this.rear];
-    }
-
-    public void enQueue(T val){
+    public void enqueue(V val){
         if(checkIfFull()){
-            System.err.println("Queue is Already Full");
+            System.out.println("Size is full, Cann't add any more");
             return;
         }
-
-        this.rear = (this.rear +1 ) % maxSize;
-        this.arr[this.rear] = val;
-        this.currentSize++;
-
+        rear = (rear+1) % maxSize;
+        arr[rear] = val;
+        currentSize++;
     }
 
-    public T deQueue(){
+    public V dequeue(){
         if(checkIfEmpty()){
-            System.err.println("Queue is Empty");
+            System.out.println("No value in queue. Cannot remove anymore");
             return null;
         }
-        T temp = this.arr[this.front];
-        this.front = (this.front +1 ) % this.maxSize;
-        this.currentSize --;
-        return temp;
+        V val = arr[front];
+        arr[front]=null;
+        front = (front+1)%maxSize;
+        currentSize--;
+        return val;
+    }
+
+    public void printQueue(){
+        int iterate = currentSize;
+
+        while(iterate >0){
+            System.out.println("Queue is "+arr[iterate-1]);
+            iterate--;
+        }
     }
 
 }
 
-class ququeImpl{
+class queueImpl{
     public static void main(String args[]){
         Queue<String> qs = new Queue<String>(4);
-        qs.enQueue("Rupesh");
-        qs.enQueue("Saurabh");
-        System.out.println("Current front is "+qs.getCurrentFront());
-        System.out.println("Current Rear is "+qs.getCurrentRear());
+//        qs.enqueue("Rupesh");
+//        qs.enqueue("Mohit");
+//        qs.enqueue("Saurabh");
+//        qs.enqueue("Rana");
 
-        qs.deQueue();
-        System.out.println("Current front is "+qs.getCurrentFront());
-        System.out.println("Current Rear is "+qs.getCurrentRear());
+        qs.enqueue("1");
+        String val = qs.dequeue();
+        System.out.println("First Dequeue val is "+ val);
+        String s1 = val + "0";
+        String s2 = val +"1";
+        qs.enqueue(s1);
+        qs.enqueue(s2);
+
+        System.out.println("sec Dequeue val is "+ qs.dequeue());
     }
 }
