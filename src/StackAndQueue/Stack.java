@@ -72,14 +72,22 @@ class stackImpl{
         stk.push("Saurabh");
         stk.push("Mohit");
 
-        stk.printStack();
+//        stk.printStack();
+//
+//        stk.pop();
+//        System.out.println("================");
+//        stk.printStack();
+//        stk.pop();
+//        System.out.println("================");
+//        stk.printStack();
 
-        stk.pop();
-        System.out.println("================");
-        stk.printStack();
-        stk.pop();
-        System.out.println("================");
-        stk.printStack();
+
+        int max = 5;
+        for(int i =-1;i<max;i++){
+            int vals = (i+1)%max;
+            System.out.println("Value is "+ vals);
+        }
+
 
 
     }
